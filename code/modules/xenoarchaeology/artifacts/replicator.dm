@@ -1,4 +1,3 @@
-
 /obj/machinery/replicator
 	name = "alien machine"
 	desc = "It's some kind of pod with strange wires and gadgets all over it."

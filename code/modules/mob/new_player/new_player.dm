@@ -292,6 +292,7 @@
 			if(character.mind.role_alt_title)
 				rank = character.mind.role_alt_title
 			global_announcer.autosay("[character.real_name],[rank ? " [rank]," : " visitor," ] [join_message ? join_message : "has arrived on the station"].", "Arrivals Announcement Computer")
+			log_game("[character.key] have been joined station ", src, 0)
 
 	proc/AnnounceCyborg(var/mob/living/character, var/rank, var/join_message)
 		if (ticker.current_state == GAME_STATE_PLAYING)

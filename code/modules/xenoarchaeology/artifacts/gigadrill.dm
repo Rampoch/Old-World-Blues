@@ -1,4 +1,3 @@
-
 /obj/machinery/giga_drill
 	name = "alien drill"
 	desc = "A giant, alien drill mounted on long treads."

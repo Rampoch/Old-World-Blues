@@ -1,4 +1,3 @@
-
 //inverse of /datum/artifact_effect/cold, the two effects split up for neatness' sake
 /datum/artifact_effect/heat
 	effecttype = "heat"
@@ -6,7 +5,7 @@
 
 /datum/artifact_effect/heat/New()
 	..()
-	effect_type = pick(5,6,7)
+	effect_type = pick(EFFECT_ORGANIC, EFFECT_BLUESPACE, EFFECT_SYNTH)
 
 /datum/artifact_effect/heat/New()
 	..()

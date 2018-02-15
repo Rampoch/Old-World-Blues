@@ -16,6 +16,7 @@
 							  //then open it in a populated area to crash clients.
 	var/open_sound = 'sound/machines/click.ogg'
 	var/close_sound = 'sound/machines/click.ogg'
+	var/broked = 0
 
 	var/store_misc = 1
 	var/store_items = 1
@@ -58,6 +59,8 @@
 			user << "There is still some free space."
 		else
 			user << "It is full."
+	if (.<=1 && opened && broked)
+		user << "Its broken!"
 
 /obj/structure/closet/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0 || wall_mounted)) return 1
@@ -107,6 +110,8 @@
 	if(!src.opened)
 		return 0
 	if(!src.can_close())
+		return 0
+	if(src.broked)
 		return 0
 
 	var/stored_units = 0
@@ -186,12 +191,13 @@
 					A.forceMove(src.loc)
 				qdel(src)
 
-/obj/structure/closet/proc/damage(var/damage)
+/obj/structure/closet/proc/damage(var/damage, mob/user)
 	health -= damage
 	if(health <= 0)
 		for(var/atom/movable/A in src)
 			A.forceMove(src.loc)
-		qdel(src)
+		src.attack_hand(user)
+		broked = 1
 
 /obj/structure/closet/bullet_act(var/obj/item/projectile/Proj)
 	if(!(Proj.damage_type == BRUTE || Proj.damage_type == BURN))
@@ -223,7 +229,7 @@
 	return FALSE
 
 
-/obj/structure/closet/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/closet/attackby(obj/item/W as obj, mob/user as mob)
 	if(src.opened)
 		if(istype(W,/obj/item/tk_grab))
 			return 0
@@ -268,6 +274,16 @@
 				if(!src) return
 				user << SPAN_NOTE("You [anchored? "un" : ""]secured \the [src]!")
 				anchored = !anchored
+	else if(istype(W) && user.a_intent == "harm")
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		user.do_attack_animation(src)
+		playsound(src.loc, 'sound/effects/grillehit.ogg', 100, 1)
+		if(W.force >= 10)
+			user.visible_message(SPAN_WARN("\The [user] attacks \the [src] with [W]!"))
+			damage(W.force)
+		else
+			user.visible_message(SPAN_WARN("\The [user] attacks \the [src] without any damage!"))
+
 	else
 		src.attack_hand(user)
 	return

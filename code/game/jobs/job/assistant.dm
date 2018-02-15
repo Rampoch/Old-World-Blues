@@ -17,6 +17,10 @@
 	ear = /obj/item/device/radio/headset
 	shoes = /obj/item/clothing/shoes/black
 
+	put_in_backpack = list(
+		/obj/item/valentine
+		)
+
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
 		if (H.mind && H.mind.role_alt_title)

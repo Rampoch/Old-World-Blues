@@ -176,7 +176,6 @@
 		var/answer = recharge_port.start_charge(mecha)
 		if(answer)
 			recharge_port.set_voltage(voltage)
-			src.icon_state = initial(src.icon_state)+"_on"
 	return
 
 /obj/machinery/computer/mech_bay_power_console/proc/mecha_out()

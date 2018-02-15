@@ -463,6 +463,22 @@
 	category = TECH_ENGINEERING
 	build_path = /obj/item/weapon/circuitboard/batteryrack
 
+/datum/design/circuit/miningdrill
+	name = "mining drill head"
+	id = "mining drill head"
+	req_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 5)
+	materials = list(MATERIAL_GLASS = 2000)
+	chemicals = list("sacid" = 20)
+	build_path = /obj/item/weapon/circuitboard/miningdrill
+
+/datum/design/circuit/miningdrillbrace
+	name = "mining drill brace"
+	id = "mining drill brace"
+	materials = list(MATERIAL_GLASS = 2000)
+	chemicals = list("sacid" = 20)
+	req_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 5)
+	build_path = /obj/item/weapon/circuitboard/miningdrillbrace
+
 /datum/design/circuit/smes_cell
 	name = "'SMES' superconductive magnetic energy storage"
 	desc = "Allows for the construction of circuit boards used to build a SMES."

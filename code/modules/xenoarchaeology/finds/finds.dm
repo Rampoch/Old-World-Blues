@@ -16,8 +16,8 @@
 /datum/find/New(var/digsite, var/exc_req)
 	excavation_required = exc_req
 	find_type = get_random_find_type(digsite)
-	clearance_range = rand(2,6)
-	dissonance_spread = rand(1500,2500) / 100
+	clearance_range = rand(2, 6)
+	dissonance_spread = rand(1500, 2500) / 100
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Strange rocks
@@ -45,9 +45,18 @@
 	if(severity && prob(30))
 		src.visible_message("The [src] crumbles away, leaving some dust and gravel behind.")*/
 
-/obj/item/weapon/ore/strangerock/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weapon/weldingtool/))
-		var/obj/item/weapon/weldingtool/w = W
+/obj/item/weapon/ore/strangerock/attackby(var/obj/item/I, var/mob/user)
+	if(istype(I, /obj/item/weapon/pickaxe/brush))
+		if(inside)
+			inside.loc = get_turf(src)
+			visible_message("<span class='info'>\The [src] is brushed away, revealing \the [inside].</span>")
+		else
+			visible_message("<span class='info'>\The [src] is brushed away into nothing.</span>")
+		qdel(src)
+		return
+
+	if(istype(I,/obj/item/weapon/weldingtool/))
+		var/obj/item/weapon/weldingtool/w = I
 		if(w.isOn())
 			if(w.get_fuel() >= 4 && !src.method)
 				if(inside)
@@ -65,8 +74,8 @@
 				w.remove_fuel(1)
 			return
 
-	else if(istype(W,/obj/item/device/core_sampler/))
-		var/obj/item/device/core_sampler/S = W
+	else if(istype(I,/obj/item/device/core_sampler/))
+		var/obj/item/device/core_sampler/S = I
 		S.sample_item(src, user)
 		return
 

@@ -1,11 +1,10 @@
-
 //todo
 /datum/artifact_effect/sleepy
 	effecttype = "sleepy"
 
 /datum/artifact_effect/sleepy/New()
 	..()
-	effect_type = pick(5,2)
+	effect_type = pick(EFFECT_PSIONIC, EFFECT_ORGANIC)
 
 /datum/artifact_effect/sleepy/DoEffectTouch(var/mob/toucher)
 	if(toucher)
@@ -13,9 +12,9 @@
 		if(ishuman(toucher) && prob(weakness * 100))
 			var/mob/living/carbon/human/H = toucher
 			H << pick(\
-				SPAN_NOTE("You feel like taking a nap."),
-				SPAN_NOTE("You feel a yawn coming on."),
-				SPAN_NOTE("You feel a little tired.")\
+				"<font color='blue'>You feel like taking a nap.</font>",
+				"<font color='blue'> You feel a yawn coming on.</font>",
+				"<font color='blue'> You feel a little tired.</font>"\
 			)
 			H.drowsyness = min(H.drowsyness + rand(5,25) * weakness, 50 * weakness)
 			H.eye_blurry = min(H.eye_blurry + rand(1,3) * weakness, 50 * weakness)
@@ -32,9 +31,9 @@
 			if(prob(weakness * 100))
 				if(prob(10))
 					H << pick(\
-						SPAN_NOTE("You feel like taking a nap."),
-						SPAN_NOTE("You feel a yawn coming on."),
-						SPAN_NOTE("You feel a little tired.")\
+				"<font color='blue'>You feel like taking a nap.</font>",
+				"<font color='blue'> You feel a yawn coming on.</font>",
+				"<font color='blue'> You feel a little tired.</font>"\
 					)
 				H.drowsyness = min(H.drowsyness + 1 * weakness, 25 * weakness)
 				H.eye_blurry = min(H.eye_blurry + 1 * weakness, 25 * weakness)
@@ -49,9 +48,9 @@
 			var/weakness = GetAnomalySusceptibility(H)
 			if(prob(weakness * 100))
 				H << pick(
-					SPAN_NOTE("You feel like taking a nap."),
-					SPAN_NOTE("You feel a yawn coming on."),
-					SPAN_NOTE("You feel a little tired.")\
+				"<font color='blue'>You feel like taking a nap.</font>",
+				"<font color='blue'> You feel a yawn coming on.</font>",
+				"<font color='blue'> You feel a little tired.</font>"\
 				)
 				H.drowsyness = min(H.drowsyness + rand(5,15) * weakness, 50 * weakness)
 				H.eye_blurry = min(H.eye_blurry + rand(5,15) * weakness, 50 * weakness)

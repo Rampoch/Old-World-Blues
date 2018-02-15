@@ -142,6 +142,7 @@
 	name = "welding tool"
 	icon = 'icons/obj/items.dmi'
 	icon_state = "welder"
+	item_state = "welder"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 
@@ -313,6 +314,7 @@
 /obj/item/weapon/weldingtool/update_icon()
 	..()
 	icon_state = welding ? "[initial(icon_state)]1" : initial(icon_state)
+	item_state = welding ? "[initial(item_state)]1" : initial(item_state)
 	var/mob/M = loc
 	if(istype(M))
 		M.update_inv_l_hand()
@@ -394,6 +396,7 @@
 
 /obj/item/weapon/weldingtool/hugetank
 	name = "upgraded welding tool"
+	icon_state = "up_welder"
 	max_fuel = 80
 	w_class = ITEM_SIZE_NORMAL
 	origin_tech = list(TECH_ENGINEERING = 3)
@@ -401,6 +404,7 @@
 
 /obj/item/weapon/weldingtool/experimental
 	name = "experimental welding tool"
+	icon_state = "exp_welder"
 	max_fuel = 40
 	w_class = ITEM_SIZE_NORMAL
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_PHORON = 3)

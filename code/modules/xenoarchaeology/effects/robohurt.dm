@@ -1,11 +1,10 @@
-
 /datum/artifact_effect/robohurt
 	effecttype = "robohurt"
 	var/last_message
 
 /datum/artifact_effect/robohurt/New()
 	..()
-	effect_type = pick(3,4)
+	effect_type = pick(EFFECT_ELECTRO, EFFECT_PARTICLE)
 
 /datum/artifact_effect/robohurt/DoEffectTouch(var/mob/user)
 	if(user)

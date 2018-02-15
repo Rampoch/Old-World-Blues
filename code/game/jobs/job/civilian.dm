@@ -17,6 +17,10 @@
 	suit = /obj/item/clothing/suit/storage/vest
 	ear = /obj/item/device/radio/headset/service
 
+	put_in_backpack = list(
+		/obj/item/valentine
+		)
+
 	equip(var/mob/living/carbon/human/H)
 		if(!..())	return 0
 		var/obj/item/storage/box/survival/Barpack = null
@@ -64,6 +68,10 @@
 	suit = /obj/item/clothing/suit/chef
 	ear = /obj/item/device/radio/headset/service
 
+	put_in_backpack = list(
+		/obj/item/valentine
+	)
+
 /datum/job/hydro
 	title = "Gardener"
 	flag = BOTANIST
@@ -89,7 +97,8 @@
 	messenger = /obj/item/storage/backpack/messenger/hyd
 
 	put_in_backpack = list(
-		/obj/item/device/analyzer/plant_analyzer
+		/obj/item/device/analyzer/plant_analyzer,
+		/obj/item/valentine
 	)
 
 
@@ -117,7 +126,9 @@
 	hand = /obj/item/weapon/clipboard
 	glasses = /obj/item/clothing/glasses/sunglasses
 
-
+	put_in_backpack = list(
+		/obj/item/valentine
+	)
 
 /datum/job/cargo_tech
 	title = "Cargo Technician"
@@ -136,6 +147,9 @@
 	pda = /obj/item/device/pda/cargo
 	ear = /obj/item/device/radio/headset/cargo
 
+	put_in_backpack = list(
+		/obj/item/valentine
+	)
 
 /datum/job/mining
 	title = "Shaft Miner"
@@ -157,7 +171,8 @@
 
 	put_in_backpack = list(
 		/obj/item/weapon/crowbar,
-		/obj/item/storage/bag/ore
+		/obj/item/storage/bag/ore,
+		/obj/item/valentine
 	)
 
 /datum/job/janitor
@@ -178,7 +193,9 @@
 	pda = /obj/item/device/pda/janitor
 	ear = /obj/item/device/radio/headset/service
 
-
+	put_in_backpack = list(
+		/obj/item/valentine
+	)
 
 //More or less assistants
 /datum/job/librarian
@@ -199,7 +216,9 @@
 	pda = /obj/item/device/pda/librarian
 	hand = /obj/item/weapon/barcodescanner
 
-
+	put_in_backpack = list(
+		/obj/item/valentine
+	)
 
 /datum/job/lawyer
 	title = "Internal Affairs Agent"
@@ -222,3 +241,7 @@
 	ear = /obj/item/device/radio/headset/ia
 	hand = /obj/item/storage/briefcase
 	glasses = /obj/item/clothing/glasses/sunglasses/big
+
+	put_in_backpack = list(
+		/obj/item/valentine
+	)

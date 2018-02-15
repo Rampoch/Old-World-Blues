@@ -74,6 +74,8 @@
 	desc = "It's a special helmet issued to the Warden of a securiy force. Protects the head from impacts."
 	armor = list(melee = 60, bullet = 40, laser = 60, energy = 15, bomb = 25, bio = 0, rad = 0)
 	icon_state = "policehelm"
+	flags_inv = HIDEEARS
+
 
 /obj/item/clothing/head/helmet/warden/alt
 	icon_state = "warden"

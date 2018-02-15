@@ -1,8 +1,7 @@
-
 //todo
 /datum/artifact_effect/celldrain
 	effecttype = "celldrain"
-	effect_type = 3
+	effect_type = EFFECT_ELECTRO
 	var/last_message
 
 /datum/artifact_effect/celldrain/DoEffectTouch(var/mob/user)

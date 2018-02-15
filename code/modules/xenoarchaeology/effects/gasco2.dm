@@ -1,4 +1,3 @@
-
 /datum/artifact_effect/gasco2
 	effecttype = "gasco2"
 	var/max_pressure
@@ -6,7 +5,7 @@
 
 /datum/artifact_effect/heat/New()
 	..()
-	effect_type = pick(6,7)
+	effect_type = pick(EFFECT_BLUESPACE, EFFECT_SYNTH)
 
 /datum/artifact_effect/gasco2/New()
 	..()

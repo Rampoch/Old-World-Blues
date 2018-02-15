@@ -16,8 +16,9 @@
 	dufflebag = /obj/item/storage/backpack/dufflebag/eng
 	messenger = /obj/item/storage/backpack/messenger/eng
 
-
-
+	put_in_backpack = list(
+		/obj/item/valentine
+		)
 
 /datum/job/engi/chief_engineer
 	title = "Chief Engineer"
@@ -48,7 +49,9 @@
 	belt = /obj/item/storage/belt/utility/full
 	ear = /obj/item/device/radio/headset/heads/ce
 
-
+	put_in_backpack = list(
+		/obj/item/valentine
+		)
 
 /datum/job/engi/engineer
 	title = "Station Engineer"
@@ -70,7 +73,8 @@
 	belt = /obj/item/storage/belt/utility/full
 
 	put_in_backpack = list(
-		/obj/item/device/t_scanner
+		/obj/item/device/t_scanner,
+		/obj/item/valentine
 	)
 
 	equip(var/mob/living/carbon/human/H)
@@ -105,3 +109,7 @@
 	uniform = /obj/item/clothing/under/rank/atmospheric_technician
 	pda = /obj/item/device/pda/atmos
 	belt = /obj/item/storage/belt/utility/atmostech
+
+	put_in_backpack = list(
+		/obj/item/valentine
+		)

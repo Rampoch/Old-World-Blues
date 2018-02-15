@@ -1,4 +1,3 @@
-
 /datum/artifact_effect/gasnitro
 	effecttype = "gasnitro"
 	var/max_pressure
@@ -7,7 +6,7 @@
 /datum/artifact_effect/gasnitro/New()
 	..()
 	effect = pick(EFFECT_TOUCH, EFFECT_AURA)
-	effect_type = pick(6,7)
+	effect_type = pick(EFFECT_BLUESPACE, EFFECT_SYNTH)
 	max_pressure = rand(115,1000)
 
 /datum/artifact_effect/gasnitro/DoEffectTouch(var/mob/user)

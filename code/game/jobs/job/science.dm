@@ -13,6 +13,9 @@
 	satchel_j = /obj/item/storage/backpack/satchel/tox
 	messenger = /obj/item/storage/backpack/messenger/tox
 
+	put_in_backpack = list(
+		/obj/item/valentine
+		)
 
 /datum/job/science/rd
 	title = "Research Director"
@@ -41,6 +44,9 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	hand = /obj/item/weapon/clipboard
 
+	put_in_backpack = list(
+		/obj/item/valentine
+		)
 
 /datum/job/science/scientist
 	title = "Scientist"
@@ -56,6 +62,10 @@
 
 	uniform = /obj/item/clothing/under/rank/scientist
 	pda = /obj/item/device/pda/science
+
+	put_in_backpack = list(
+		/obj/item/valentine
+		)
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
@@ -89,6 +99,9 @@
 	uniform = /obj/item/clothing/under/rank/xenobio
 	pda = /obj/item/device/pda/science
 
+	put_in_backpack = list(
+		/obj/item/valentine
+		)
 
 /datum/job/science/roboticist
 	title = "Roboticist"
@@ -115,6 +128,10 @@
 	satchel_j = /obj/item/storage/backpack/satchel/norm
 	dufflebag = /obj/item/storage/backpack/dufflebag
 	messenger = /obj/item/storage/backpack/messenger/black
+
+	put_in_backpack = list(
+		/obj/item/valentine
+		)
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0

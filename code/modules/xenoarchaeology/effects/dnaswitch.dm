@@ -1,8 +1,7 @@
-
 //todo
 /datum/artifact_effect/dnaswitch
 	effecttype = "dnaswitch"
-	effect_type = 5
+	effect_type = EFFECT_ORGANIC
 	var/severity
 
 /datum/artifact_effect/dnaswitch/New()

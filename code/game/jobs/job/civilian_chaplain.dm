@@ -16,6 +16,10 @@
 	uniform = /obj/item/clothing/under/rank/chaplain
 	pda = /obj/item/device/pda/chaplain
 
+	put_in_backpack = list(
+		/obj/item/valentine
+		)
+
 	equip(var/mob/living/carbon/human/H)
 		if(!..())	return 0
 

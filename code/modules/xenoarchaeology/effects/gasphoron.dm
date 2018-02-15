@@ -1,4 +1,3 @@
-
 /datum/artifact_effect/gasphoron
 	effecttype = "gasphoron"
 	var/max_pressure
@@ -8,7 +7,7 @@
 	..()
 	effect = pick(EFFECT_TOUCH, EFFECT_AURA)
 	max_pressure = rand(115,1000)
-	effect_type = pick(6,7)
+	effect_type = pick(EFFECT_BLUESPACE, EFFECT_SYNTH)
 
 /datum/artifact_effect/gasphoron/DoEffectTouch(var/mob/user)
 	if(holder)

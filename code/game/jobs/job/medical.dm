@@ -15,6 +15,9 @@
 	dufflebag = /obj/item/storage/backpack/dufflebag/med
 	messenger = /obj/item/storage/backpack/messenger/med
 
+	put_in_backpack = list(
+		/obj/item/valentine
+		)
 
 /datum/job/medical/cmo
 	title = "Chief Medical Officer"
@@ -45,6 +48,9 @@
 	ear = /obj/item/device/radio/headset/heads/cmo
 	hand = /obj/item/storage/firstaid/adv
 
+	put_in_backpack = list(
+		/obj/item/valentine
+		)
 
 /datum/job/medical/doctor
 	title = "Medical Doctor"
@@ -62,6 +68,10 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	suit_store = /obj/item/device/flashlight/pen
 	hand = /obj/item/storage/firstaid/adv
+
+	put_in_backpack = list(
+		/obj/item/valentine
+		)
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
@@ -126,6 +136,10 @@
 	dufflebag = /obj/item/storage/backpack/dufflebag/med
 	messenger = /obj/item/storage/backpack/messenger/chem
 
+	put_in_backpack = list(
+		/obj/item/valentine
+		)
+
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
 		if (H.mind && H.mind.role_alt_title)
@@ -156,6 +170,9 @@
 	dufflebag = /obj/item/storage/backpack/dufflebag/med
 	messenger = /obj/item/storage/backpack/messenger/med
 
+	put_in_backpack = list(
+		/obj/item/valentine
+		)
 
 /datum/job/medical/psychiatrist
 	title = "Psychiatrist"
@@ -172,6 +189,10 @@
 	shoes = /obj/item/clothing/shoes/laceup
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	suit_store = null
+
+	put_in_backpack = list(
+		/obj/item/valentine
+		)
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
@@ -209,6 +230,10 @@
 	satchel_j = /obj/item/storage/backpack/satchel/emt
 	dufflebag = /obj/item/storage/backpack/dufflebag/emt
 	messenger = /obj/item/storage/backpack/messenger/emt
+
+	put_in_backpack = list(
+		/obj/item/valentine
+		)
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0

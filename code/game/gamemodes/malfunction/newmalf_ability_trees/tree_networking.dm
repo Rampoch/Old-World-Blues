@@ -172,7 +172,6 @@
 		command_announcement.Announce("We have detected a strong brute-force attack on your firewall which seems to be originating from your AI system. It already controls almost the whole network, and the only thing that's preventing it from accessing the self-destruct is this firewall. You don't have much time before it succeeds.", "Network Monitoring")
 	user << "## BEGINNING SYSTEM OVERRIDE."
 	user << "## ESTIMATED DURATION: [round((duration+300)/600)] MINUTES"
-	user.hacking = 1
 	user.system_override = 1
 	// Now actually begin the hack. Each APC takes 10 seconds.
 	for(var/obj/machinery/power/apc/A in shuffle(remaining_apcs))
@@ -196,7 +195,6 @@
 	user << "## PRIMARY FIREWALL BYPASSED. YOU NOW HAVE FULL SYSTEM CONTROL."
 	command_announcement.Announce("Our system administrators just reported that we've been locked out from your control network. Whoever did this now has full access to the station's systems.", "Network Administration Center")
 	user.hack_can_fail = 0
-	user.hacking = 0
 	user.system_override = 2
 	user.verbs += new/datum/game_mode/malfunction/verb/ai_destroy_station()
 

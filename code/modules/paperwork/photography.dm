@@ -162,7 +162,7 @@ var/global/photo_count = 0
 /obj/item/device/camera/verb/change_size()
 	set name = "Set Photo Focus"
 	set category = "Object"
-	var/nsize = input("Photo Size","Pick a size of resulting photo.") as null|anything in list(1,3,5)
+	var/nsize = input("Photo Size","Pick a size of resulting photo.") as null|anything in list(1,3)
 	if(nsize)
 		size = nsize
 		usr << SPAN_NOTE("Camera will now take [size]x[size] photos.")

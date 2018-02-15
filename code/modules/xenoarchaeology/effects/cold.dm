@@ -1,4 +1,3 @@
-
 //inverse of /datum/artifact_effect/heat, the two effects split up for neatness' sake
 /datum/artifact_effect/cold
 	effecttype = "cold"
@@ -8,7 +7,7 @@
 	..()
 	target_temp = rand(0, 250)
 	effect = pick(EFFECT_TOUCH, EFFECT_AURA)
-	effect_type = pick(5,6,7)
+	effect_type = pick(EFFECT_ORGANIC, EFFECT_BLUESPACE, EFFECT_SYNTH)
 
 /datum/artifact_effect/cold/DoEffectTouch(var/mob/user)
 	if(holder)

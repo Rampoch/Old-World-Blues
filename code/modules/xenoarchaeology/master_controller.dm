@@ -9,38 +9,52 @@
 #define ARTIFACTSPAWNNUM_LOWER 6
 #define ARTIFACTSPAWNNUM_UPPER 12
 
-datum/controller/game_controller/proc/SetupXenoarch()
-	//create digsites
-	for(var/turf/simulated/mineral/M in block(locate(1,1,1), locate(world.maxx, world.maxy, world.maxz)))
+/datum/controller/game_controller/proc/SetupXenoarch()
+	for(var/turf/simulated/mineral/M in world)
+		if(!M.density)
+			continue
+
 		if(isnull(M.geologic_data))
-			M.geologic_data = new/datum/geosample(M)
+			M.geologic_data = new /datum/geosample(M)
 
 		if(!prob(XENOARCH_SPAWN_CHANCE))
 			continue
 
+		var/farEnough = 1
+		for(var/A in digsite_spawning_turfs)
+			var/turf/T = A
+			if(T in range(5, M))
+				farEnough = 0
+				break
+		if(!farEnough)
+			continue
+
 		digsite_spawning_turfs.Add(M)
+
 		var/digsite = get_random_digsite_type()
 		var/target_digsite_size = rand(DIGSITESIZE_LOWER, DIGSITESIZE_UPPER)
+
 		var/list/processed_turfs = list()
 		var/list/turfs_to_process = list(M)
+
+		var/list/viable_adjacent_turfs = list()
+		if(target_digsite_size > 1)
+			for(var/turf/simulated/mineral/T in orange(2, M))
+				if(!T.density)
+					continue
+				if(T.finds)
+					continue
+				if(T in processed_turfs)
+					continue
+				viable_adjacent_turfs.Add(T)
+
+			target_digsite_size = min(target_digsite_size, viable_adjacent_turfs.len)
+
+		for(var/i = 1 to target_digsite_size)
+			turfs_to_process += pick_n_take(viable_adjacent_turfs)
+
 		while(turfs_to_process.len)
 			var/turf/simulated/mineral/archeo_turf = pop(turfs_to_process)
-
-			if(target_digsite_size > 1)
-				var/list/viable_adjacent_turfs = orange(1, archeo_turf)
-				for(var/turf/simulated/mineral/T in RANGE_TURFS(1, archeo_turf))
-					if(T.finds)
-						continue
-					if(T in processed_turfs)
-						continue
-					viable_adjacent_turfs.Add(T)
-
-				for(var/turf/simulated/mineral/T in viable_adjacent_turfs)
-					if(prob(target_digsite_size/viable_adjacent_turfs.len))
-						turfs_to_process.Add(T)
-						target_digsite_size -= 1
-						if(target_digsite_size <= 0)
-							break
 
 			processed_turfs.Add(archeo_turf)
 			if(isnull(archeo_turf.finds))

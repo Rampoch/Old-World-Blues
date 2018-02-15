@@ -1,4 +1,3 @@
-
 /obj/machinery/auto_cloner
 	name = "mysterious pod"
 	desc = "It's full of a viscous liquid, but appears dark and silent."

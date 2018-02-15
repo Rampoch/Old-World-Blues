@@ -1,4 +1,3 @@
-
 /datum/artifact_effect/gassleeping
 	effecttype = "gassleeping"
 	var/max_pressure
@@ -8,7 +7,7 @@
 	..()
 	effect = pick(EFFECT_TOUCH, EFFECT_AURA)
 	max_pressure = rand(115,1000)
-	effect_type = pick(6,7)
+	effect_type = pick(EFFECT_BLUESPACE, EFFECT_SYNTH)
 
 /datum/artifact_effect/gassleeping/DoEffectTouch(var/mob/user)
 	if(holder)
